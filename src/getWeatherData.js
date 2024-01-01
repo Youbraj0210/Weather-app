@@ -5,6 +5,7 @@ export let getData = async (city)=>{
     let res = await fetch(`${apiUrl}q=${city}&appid=${apiKey}&units=metric`);
     let jres = await res.json();
     let result = {
+        city:city,
         temp:jres.main.temp,
         humidity:jres.main.humidity,
         feels_like:jres.main.feels_like,
@@ -14,6 +15,6 @@ export let getData = async (city)=>{
         weather:jres.weather[0].description
         
     }
-    console.log(result)
+    return result;
 }
  
